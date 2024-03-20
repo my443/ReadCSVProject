@@ -34,6 +34,12 @@ namespace ReadCSVProject
                 }
             }
 
+            // Needed to rename the id column so that we can add it as a primary key later.
+            if (dt.Columns.Contains("Id"))
+            {
+                dt.Columns["Id"].ColumnName = "imported_Id";
+            }
+
             return dt;
         }
 
@@ -49,6 +55,14 @@ namespace ReadCSVProject
 
                 }
                 Console.WriteLine(row);
+            }
+        }
+
+        public void getColumns(DataTable dt)
+        {
+            foreach(DataColumn column in dt.Columns)
+            {
+                Console.WriteLine($"{column.ColumnName}");
             }
         }
 
