@@ -58,12 +58,20 @@ namespace ReadCSVProject
             }
         }
 
-        public void getColumns(DataTable dt)
+        /// <summary>
+        /// Returns the column names of the csv just imported.
+        /// </summary>
+        /// <param name="dt">DataTable from the csv.</param>
+        /// <returns>An IEnumerable of the columns of the csv.</returns>
+        public IEnumerable<DataColumn> getColumns(DataTable dt)
         {
             foreach(DataColumn column in dt.Columns)
             {
                 Console.WriteLine($"{column.ColumnName}");
             }
+            IEnumerable <DataColumn> columns = dt.Columns.Cast<DataColumn>();
+
+            return columns;
         }
 
     }

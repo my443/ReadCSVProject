@@ -1,8 +1,7 @@
-﻿
-
-// See https://aka.ms/new-console-template for more information
-using ReadCSVProject;
+﻿using ReadCSVProject;
 using System.Data;
+using System.Reflection.Metadata;
+
 
 class GFG
 {
@@ -15,7 +14,7 @@ class GFG
 
         Console.WriteLine("Start Reading a csv to data table.");
                
-        
+        // Read the csv
         CSVAction csv = new CSVAction();
         DataTable csvData =  csv.readCSV(pathToFile);
         csv.printDataTable(csvData);
@@ -26,6 +25,12 @@ class GFG
         csvData.TableName = "csv";
         SQLiteAction sqlite = new SQLiteAction();
         sqlite.createTable(pathToDB, csvData);
+
+        // Insert the data
+        var database = new SQLiteDBContext(pathToDB);
+        var dataToInsert = new { Name = "abc" };
+        //database.csv.InsertOnSubmit(dataToInsert);
+        database.SaveChanges();
 
         Console.WriteLine("CSV Read to Data Table!");
     }
