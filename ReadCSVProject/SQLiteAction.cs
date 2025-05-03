@@ -55,7 +55,7 @@ namespace ReadCSVProject
         {
             //string primaryKeyDefinition = $"{primaryKeyColumn.ColumnName} {GetSQLiteType(primaryKeyColumn.DataType)} PRIMARY KEY";
             string query_string = string.Join(", ",
-                columns.Cast<DataColumn>().Select(c => $"{c.ColumnName} {GetSQLiteType(c.DataType)}")
+                columns.Cast<DataColumn>().Select(c => $"[{c.ColumnName}] {GetSQLiteType(c.DataType)}")
             );
 
             query_string = "Id INTEGER PRIMARY KEY, " + query_string;

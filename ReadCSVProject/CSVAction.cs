@@ -21,11 +21,20 @@ namespace ReadCSVProject
 
             DataTable dt = new DataTable();
 
+            var config = new CsvHelper.Configuration.CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                BadDataFound = null, // Ignore bad data
+                MissingFieldFound = null
+            };
+
             // CSV DataReader
             // https://joshclose.github.io/CsvHelper/examples/csvdatareader/
             using (var reader = new StreamReader(pathToFile))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            using (var csv = new CsvReader(reader, config))
             {
+                // Ignore bad data
+
+
                 var records = csv.GetRecords<dynamic>();
                 using (var dr = new CsvDataReader(csv))
                 {

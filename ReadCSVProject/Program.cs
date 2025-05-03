@@ -16,8 +16,8 @@ class GFG
     // Main Method 
     static public void Main(String[] args)
     {
-        string pathToFile = """..\..\..\Book1.csv""";           // has to be like this so that it looks at the right levels.
-        string pathToDB = """..\..\..\db.db3""";           // has to be like this so that it looks at the right levels.
+        string pathToFile = """..\..\..\DataFiles\ident_2022.csv""";           // has to be like this so that it looks at the right levels.
+        string pathToDB = """..\..\..\Databases\charities.db3""";           // has to be like this so that it looks at the right levels.
 
         Console.WriteLine("Start Reading a csv to data table.");
                
